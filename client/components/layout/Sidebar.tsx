@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   Menu,
   X,
@@ -26,14 +27,13 @@ interface SidebarItem {
   submenu?: SidebarItem[];
 }
 
-interface SidebarProps {
-  userRole?: string;
-}
-
-export const Sidebar: React.FC<SidebarProps> = ({ userRole = "employee" }) => {
+export const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const userRole = user?.role || "employee";
 
   const isAdmin = ["super_admin", "hr_officer", "training_coordinator", "education_coordinator", "research_coordinator"].includes(userRole);
 
