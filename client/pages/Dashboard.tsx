@@ -72,10 +72,6 @@ export default function Dashboard() {
     { type: "employee", title: "5 new employees registered", time: "1 day ago" },
   ];
 
-  const isAdminRole = ["super_admin", "hr_officer", "training_coordinator", "education_coordinator", "research_coordinator"].includes(userRole);
-  const isEmployee = userRole === "employee";
-  const isApprover = userRole.includes("approver");
-
   return (
     <MainLayout userRole={userRole}>
       <div className="p-4 md:p-8">
