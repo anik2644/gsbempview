@@ -73,7 +73,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <MainLayout userRole={userRole}>
+    <MainLayout>
       <div className="p-4 md:p-8">
         {/* Welcome Banner */}
         <div className="mb-8 bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 text-white">
