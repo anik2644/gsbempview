@@ -15,6 +15,7 @@ import {
   Search,
   FileText,
   CheckSquare,
+  ClipboardList,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
