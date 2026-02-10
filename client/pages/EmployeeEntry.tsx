@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   Select,
   SelectContent,
@@ -16,6 +17,7 @@ import {
 import { ChevronDown, Upload, Check, AlertCircle } from "lucide-react";
 
 export default function EmployeeEntry() {
+  const { user } = useAuth();
   const [currentSection, setCurrentSection] = useState("basic");
   const [formData, setFormData] = useState({
     // Basic Identification
