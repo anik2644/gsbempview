@@ -8,14 +8,12 @@ interface PlaceholderProps {
   title: string;
   description: string;
   icon?: React.ReactNode;
-  userRole?: string;
 }
 
 export const Placeholder: React.FC<PlaceholderProps> = ({
   title,
   description,
   icon,
-  userRole = "employee",
 }) => {
   return (
     <MainLayout userRole={userRole}>
