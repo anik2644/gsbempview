@@ -12,10 +12,9 @@ import {
   LogOut,
   ChevronDown,
   Calendar,
-  SearchIcon,
+  Search,
   FileText,
-  ClipboardList,
-  Briefcase,
+  CheckSquare,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
