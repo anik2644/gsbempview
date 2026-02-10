@@ -193,7 +193,21 @@ export const Sidebar: React.FC = () => {
 
         {/* User Profile Footer */}
         <div className="border-t border-gray-200 p-4">
-          <button className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+          <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+            <p className="text-xs text-gray-600 uppercase tracking-wide font-semibold">
+              Logged in as
+            </p>
+            <p className="text-sm font-medium text-gray-900 mt-1">{user?.name}</p>
+            <p className="text-xs text-gray-600 capitalize">{userRole.replace(/_/g, " ")}</p>
+          </div>
+          <button
+            onClick={() => {
+              logout();
+              navigate("/login");
+              setIsOpen(false);
+            }}
+            className="flex items-center gap-3 w-full px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+          >
             <LogOut size={20} />
             <span>Logout</span>
           </button>
