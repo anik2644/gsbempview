@@ -37,6 +37,10 @@ import {
 export default function Dashboard() {
   const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState("this-month");
+  const userRole = user?.role || "employee";
+  const isAdminRole = ["super_admin", "hr_officer", "training_coordinator", "education_coordinator", "research_coordinator"].includes(userRole);
+  const isEmployee = userRole === "employee";
+  const isApprover = userRole.includes("approver");
 
   // Mock data for charts
   const trainingHours = [
