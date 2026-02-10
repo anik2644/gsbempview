@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   BarChart,
   Bar,
@@ -33,11 +34,8 @@ import {
   Award,
 } from "lucide-react";
 
-interface DashboardProps {
-  userRole?: string;
-}
-
-export default function Dashboard({ userRole = "super_admin" }: DashboardProps) {
+export default function Dashboard() {
+  const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState("this-month");
 
   // Mock data for charts
