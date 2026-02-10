@@ -55,7 +55,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userRole = "employee" }) => {
       { label: "User Management", path: "/user-management", icon: <Users size={20} /> },
       { label: "System Configuration", path: "/system-configuration", icon: <Settings size={20} /> },
       { label: "Master Data", path: "/master-data", icon: <ClipboardList size={20} /> },
-      { label: "Approval Queue", path: "/approval-queue", icon: <ChecklistIcon size={20} /> },
+      { label: "Approval Queue", path: "/approval-queue", icon: <CheckSquare size={20} /> },
     ] : []),
   ];
 
