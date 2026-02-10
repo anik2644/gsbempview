@@ -5,6 +5,9 @@ export default {
   content: ["./client/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -22,10 +25,45 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          50: "#eff6ff",
+          100: "#dbeafe",
+          200: "#bfdbfe",
+          300: "#93c5fd",
+          400: "#60a5fa",
+          500: "#3b82f6",
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          50: "#fff7ed",
+          100: "#fee2d5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316",
+          600: "#ea580c",
+          700: "#c2410c",
+          800: "#9a3412",
+          900: "#7c2d12",
+        },
+        success: {
+          DEFAULT: "#10b981",
+          light: "#d1fae5",
+          dark: "#047857",
+        },
+        warning: {
+          DEFAULT: "#f59e0b",
+          light: "#fef3c7",
+          dark: "#d97706",
+        },
+        error: {
+          DEFAULT: "#ef4444",
+          light: "#fee2e2",
+          dark: "#dc2626",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
