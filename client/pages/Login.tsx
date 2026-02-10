@@ -24,13 +24,41 @@ export default function Login() {
   const navigate = useNavigate();
 
   const demoUsers = [
-    { email: "admin@eduadmin.gov", role: "super_admin" as UserRole, name: "Super Admin" },
-    { email: "hr@eduadmin.gov", role: "hr_officer" as UserRole, name: "HR Officer" },
-    { email: "training@eduadmin.gov", role: "training_coordinator" as UserRole, name: "Training Coordinator" },
-    { email: "research@eduadmin.gov", role: "research_coordinator" as UserRole, name: "Research Coordinator" },
-    { email: "approver@eduadmin.gov", role: "approver_level_1" as UserRole, name: "Approver Level 1" },
-    { email: "employee@eduadmin.gov", role: "employee" as UserRole, name: "Employee" },
-    { email: "auditor@eduadmin.gov", role: "auditor" as UserRole, name: "Auditor" },
+    {
+      email: "admin@eduadmin.gov",
+      role: "super_admin" as UserRole,
+      name: "Super Admin",
+    },
+    {
+      email: "hr@eduadmin.gov",
+      role: "hr_officer" as UserRole,
+      name: "HR Officer",
+    },
+    {
+      email: "training@eduadmin.gov",
+      role: "training_coordinator" as UserRole,
+      name: "Training Coordinator",
+    },
+    {
+      email: "research@eduadmin.gov",
+      role: "research_coordinator" as UserRole,
+      name: "Research Coordinator",
+    },
+    {
+      email: "approver@eduadmin.gov",
+      role: "approver_level_1" as UserRole,
+      name: "Approver Level 1",
+    },
+    {
+      email: "employee@eduadmin.gov",
+      role: "employee" as UserRole,
+      name: "Employee",
+    },
+    {
+      email: "auditor@eduadmin.gov",
+      role: "auditor" as UserRole,
+      name: "Auditor",
+    },
   ];
 
   const handleDemoLogin = (demoEmail: string, demoRole: UserRole) => {
@@ -116,7 +144,11 @@ export default function Login() {
 
             <div>
               <Label htmlFor="role">Role</Label>
-              <Select value={role} onValueChange={(value) => setRole(value as UserRole)} disabled={loading}>
+              <Select
+                value={role}
+                onValueChange={(value) => setRole(value as UserRole)}
+                disabled={loading}
+              >
                 <SelectTrigger id="role">
                   <SelectValue />
                 </SelectTrigger>

@@ -35,29 +35,85 @@ export const Sidebar: React.FC = () => {
   const { user, logout } = useAuth();
   const userRole = user?.role || "employee";
 
-  const isAdmin = ["super_admin", "hr_officer", "training_coordinator", "education_coordinator", "research_coordinator"].includes(userRole);
+  const isAdmin = [
+    "super_admin",
+    "hr_officer",
+    "training_coordinator",
+    "education_coordinator",
+    "research_coordinator",
+  ].includes(userRole);
 
   const mainMenuItems: SidebarItem[] = [
     { label: "Home", path: "/", icon: <Home size={20} /> },
-    { label: "Officer/Employee Entry", path: "/employee-entry", icon: <UserPlus size={20} /> },
-    { label: "Officer/Employee List", path: "/employee-list", icon: <Users size={20} /> },
-    { label: "Employee Search", path: "/employee-search", icon: <Search size={20} /> },
+    {
+      label: "Officer/Employee Entry",
+      path: "/employee-entry",
+      icon: <UserPlus size={20} />,
+    },
+    {
+      label: "Officer/Employee List",
+      path: "/employee-list",
+      icon: <Users size={20} />,
+    },
+    {
+      label: "Employee Search",
+      path: "/employee-search",
+      icon: <Search size={20} />,
+    },
   ];
 
   const trainingResearchItems: SidebarItem[] = [
-    { label: "Training Status", path: "/training-status", icon: <BarChart3 size={20} /> },
-    { label: "Upcoming Training", path: "/upcoming-training", icon: <Calendar size={20} /> },
-    { label: "Research History", path: "/research-history", icon: <BookOpen size={20} /> },
-    ...(userRole === "employee" ? [{ label: "My Applications", path: "/my-applications", icon: <FileText size={20} /> }] : []),
+    {
+      label: "Training Status",
+      path: "/training-status",
+      icon: <BarChart3 size={20} />,
+    },
+    {
+      label: "Upcoming Training",
+      path: "/upcoming-training",
+      icon: <Calendar size={20} />,
+    },
+    {
+      label: "Research History",
+      path: "/research-history",
+      icon: <BookOpen size={20} />,
+    },
+    ...(userRole === "employee"
+      ? [
+          {
+            label: "My Applications",
+            path: "/my-applications",
+            icon: <FileText size={20} />,
+          },
+        ]
+      : []),
   ];
 
   const administrationItems: SidebarItem[] = [
-    ...(isAdmin ? [
-      { label: "User Management", path: "/user-management", icon: <Users size={20} /> },
-      { label: "System Configuration", path: "/system-configuration", icon: <Settings size={20} /> },
-      { label: "Master Data", path: "/master-data", icon: <ClipboardList size={20} /> },
-      { label: "Approval Queue", path: "/approval-queue", icon: <CheckSquare size={20} /> },
-    ] : []),
+    ...(isAdmin
+      ? [
+          {
+            label: "User Management",
+            path: "/user-management",
+            icon: <Users size={20} />,
+          },
+          {
+            label: "System Configuration",
+            path: "/system-configuration",
+            icon: <Settings size={20} />,
+          },
+          {
+            label: "Master Data",
+            path: "/master-data",
+            icon: <ClipboardList size={20} />,
+          },
+          {
+            label: "Approval Queue",
+            path: "/approval-queue",
+            icon: <CheckSquare size={20} />,
+          },
+        ]
+      : []),
   ];
 
   const systemItems: SidebarItem[] = [
@@ -71,7 +127,10 @@ export const Sidebar: React.FC = () => {
     return location.pathname === path;
   };
 
-  const NavItem: React.FC<{ item: SidebarItem; section: string }> = ({ item, section }) => {
+  const NavItem: React.FC<{ item: SidebarItem; section: string }> = ({
+    item,
+    section,
+  }) => {
     const active = isActive(item.path);
     const hasSubmenu = item.submenu && item.submenu.length > 0;
     const [isExpanded, setIsExpanded] = useState(false);
@@ -87,7 +146,7 @@ export const Sidebar: React.FC = () => {
             "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
             active
               ? "bg-primary text-white"
-              : "text-gray-700 hover:bg-gray-100"
+              : "text-gray-700 hover:bg-gray-100",
           )}
         >
           {item.icon}
@@ -95,7 +154,10 @@ export const Sidebar: React.FC = () => {
           {hasSubmenu && (
             <ChevronDown
               size={16}
-              className={cn("ml-auto transition-transform", isExpanded && "rotate-180")}
+              className={cn(
+                "ml-auto transition-transform",
+                isExpanded && "rotate-180",
+              )}
             />
           )}
         </Link>
@@ -127,7 +189,7 @@ export const Sidebar: React.FC = () => {
       <aside
         className={cn(
           "fixed md:relative inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 md:translate-x-0",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         {/* Logo */}
@@ -197,8 +259,12 @@ export const Sidebar: React.FC = () => {
             <p className="text-xs text-gray-600 uppercase tracking-wide font-semibold">
               Logged in as
             </p>
-            <p className="text-sm font-medium text-gray-900 mt-1">{user?.name}</p>
-            <p className="text-xs text-gray-600 capitalize">{userRole.replace(/_/g, " ")}</p>
+            <p className="text-sm font-medium text-gray-900 mt-1">
+              {user?.name}
+            </p>
+            <p className="text-xs text-gray-600 capitalize">
+              {userRole.replace(/_/g, " ")}
+            </p>
           </div>
           <button
             onClick={() => {

@@ -13,7 +13,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { UserRole } from "@/contexts/AuthContext";
-import { Plus, Edit, Trash2, Eye, Lock, Unlock, CheckCircle } from "lucide-react";
+import {
+  Plus,
+  Edit,
+  Trash2,
+  Eye,
+  Lock,
+  Unlock,
+  CheckCircle,
+} from "lucide-react";
 
 interface SystemUser {
   id: string;
@@ -157,8 +165,8 @@ export default function UserManagement() {
       users.map((user) =>
         user.id === userId
           ? { ...user, status: user.status === "Locked" ? "Active" : "Locked" }
-          : user
-      )
+          : user,
+      ),
     );
   };
 
@@ -242,7 +250,8 @@ export default function UserManagement() {
 
             <div className="flex items-end">
               <p className="text-sm text-gray-600">
-                <span className="font-semibold">{filteredUsers.length}</span> users found
+                <span className="font-semibold">{filteredUsers.length}</span>{" "}
+                users found
               </p>
             </div>
           </div>
@@ -279,7 +288,10 @@ export default function UserManagement() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {filteredUsers.map((user) => (
-                  <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+                  <tr
+                    key={user.id}
+                    className="hover:bg-gray-50 transition-colors"
+                  >
                     <td className="px-6 py-4">
                       <div>
                         <p className="text-sm font-medium text-gray-900">
@@ -420,7 +432,10 @@ export default function UserManagement() {
                 >
                   Cancel
                 </Button>
-                <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90">
+                <Button
+                  type="submit"
+                  className="flex-1 bg-primary hover:bg-primary/90"
+                >
                   <CheckCircle size={18} className="mr-2" />
                   Create User
                 </Button>

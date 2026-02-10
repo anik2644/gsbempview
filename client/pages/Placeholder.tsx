@@ -39,15 +39,14 @@ export const Placeholder: React.FC<PlaceholderProps> = ({
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
               <p className="text-sm text-blue-700 leading-relaxed">
-                This page is currently a placeholder. To view the actual content and features,
-                please continue using the app or provide feedback to customize this section.
+                This page is currently a placeholder. To view the actual content
+                and features, please continue using the app or provide feedback
+                to customize this section.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="outline">
-                Go Back
-              </Button>
+              <Button variant="outline">Go Back</Button>
               <Button className="bg-primary hover:bg-primary/90">
                 <ChevronRight size={18} className="mr-2" />
                 Continue

@@ -34,13 +34,15 @@ const NotFound = () => {
               Sorry, we couldn't find the page you're looking for.
             </p>
             <p className="text-gray-500 text-sm mb-8">
-              The requested URL <span className="font-mono bg-gray-100 px-2 py-1 rounded">{location.pathname}</span> does not exist.
+              The requested URL{" "}
+              <span className="font-mono bg-gray-100 px-2 py-1 rounded">
+                {location.pathname}
+              </span>{" "}
+              does not exist.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="outline">
-                Go Back
-              </Button>
+              <Button variant="outline">Go Back</Button>
               <Link to="/">
                 <Button className="bg-primary hover:bg-primary/90">
                   <Home size={18} className="mr-2" />

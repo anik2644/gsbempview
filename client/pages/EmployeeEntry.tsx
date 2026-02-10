@@ -74,7 +74,7 @@ export default function EmployeeEntry() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -165,7 +165,9 @@ export default function EmployeeEntry() {
     }
   };
 
-  const currentSectionIndex = sections.findIndex((s) => s.id === currentSection);
+  const currentSectionIndex = sections.findIndex(
+    (s) => s.id === currentSection,
+  );
   const progress = ((currentSectionIndex + 1) / sections.length) * 100;
 
   return (
@@ -210,8 +212,8 @@ export default function EmployeeEntry() {
                   currentSection === section.id
                     ? "bg-primary text-white"
                     : idx < currentSectionIndex
-                    ? "bg-green-100 text-green-800"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
                 <span className="mr-2">{section.icon}</span>
@@ -261,7 +263,9 @@ export default function EmployeeEntry() {
                     className={errors.fullName ? "border-red-500" : ""}
                   />
                   {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.fullName}
+                    </p>
                   )}
                 </div>
               </div>
@@ -310,13 +314,18 @@ export default function EmployeeEntry() {
                   <Label htmlFor="gender">
                     Gender <span className="text-red-500">*</span>
                   </Label>
-                  <Select value={formData.gender} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, gender: value }));
-                    if (errors.gender) {
-                      setErrors(prev => ({ ...prev, gender: "" }));
-                    }
-                  }}>
-                    <SelectTrigger className={errors.gender ? "border-red-500" : ""}>
+                  <Select
+                    value={formData.gender}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, gender: value }));
+                      if (errors.gender) {
+                        setErrors((prev) => ({ ...prev, gender: "" }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger
+                      className={errors.gender ? "border-red-500" : ""}
+                    >
                       <SelectValue placeholder="Select gender" />
                     </SelectTrigger>
                     <SelectContent>
@@ -341,7 +350,10 @@ export default function EmployeeEntry() {
                     className="hidden"
                     id="photo-upload"
                   />
-                  <label htmlFor="photo-upload" className="cursor-pointer block">
+                  <label
+                    htmlFor="photo-upload"
+                    className="cursor-pointer block"
+                  >
                     <Upload className="mx-auto text-gray-400 mb-2" size={32} />
                     <p className="text-sm text-gray-600">
                       Drag and drop or click to upload
@@ -411,13 +423,18 @@ export default function EmployeeEntry() {
                   <Label htmlFor="district">
                     District <span className="text-red-500">*</span>
                   </Label>
-                  <Select value={formData.district} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, district: value }));
-                    if (errors.district) {
-                      setErrors(prev => ({ ...prev, district: "" }));
-                    }
-                  }}>
-                    <SelectTrigger className={errors.district ? "border-red-500" : ""}>
+                  <Select
+                    value={formData.district}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, district: value }));
+                      if (errors.district) {
+                        setErrors((prev) => ({ ...prev, district: "" }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger
+                      className={errors.district ? "border-red-500" : ""}
+                    >
                       <SelectValue placeholder="Select district" />
                     </SelectTrigger>
                     <SelectContent>
@@ -427,30 +444,41 @@ export default function EmployeeEntry() {
                     </SelectContent>
                   </Select>
                   {errors.district && (
-                    <p className="text-red-500 text-sm mt-1">{errors.district}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.district}
+                    </p>
                   )}
                 </div>
                 <div>
                   <Label htmlFor="division">
                     Division <span className="text-red-500">*</span>
                   </Label>
-                  <Select value={formData.division} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, division: value }));
-                    if (errors.division) {
-                      setErrors(prev => ({ ...prev, division: "" }));
-                    }
-                  }}>
-                    <SelectTrigger className={errors.division ? "border-red-500" : ""}>
+                  <Select
+                    value={formData.division}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, division: value }));
+                      if (errors.division) {
+                        setErrors((prev) => ({ ...prev, division: "" }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger
+                      className={errors.division ? "border-red-500" : ""}
+                    >
                       <SelectValue placeholder="Select division" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="general-admin">General Administration</SelectItem>
+                      <SelectItem value="general-admin">
+                        General Administration
+                      </SelectItem>
                       <SelectItem value="finance">Finance</SelectItem>
                       <SelectItem value="ict">ICT</SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.division && (
-                    <p className="text-red-500 text-sm mt-1">{errors.division}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.division}
+                    </p>
                   )}
                 </div>
               </div>
@@ -486,23 +514,34 @@ export default function EmployeeEntry() {
                   <Label htmlFor="designation">
                     Designation <span className="text-red-500">*</span>
                   </Label>
-                  <Select value={formData.designation} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, designation: value }));
-                    if (errors.designation) {
-                      setErrors(prev => ({ ...prev, designation: "" }));
-                    }
-                  }}>
-                    <SelectTrigger className={errors.designation ? "border-red-500" : ""}>
+                  <Select
+                    value={formData.designation}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, designation: value }));
+                      if (errors.designation) {
+                        setErrors((prev) => ({ ...prev, designation: "" }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger
+                      className={errors.designation ? "border-red-500" : ""}
+                    >
                       <SelectValue placeholder="Select designation" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="officer">Officer</SelectItem>
-                      <SelectItem value="senior-officer">Senior Officer</SelectItem>
-                      <SelectItem value="deputy-secretary">Deputy Secretary</SelectItem>
+                      <SelectItem value="senior-officer">
+                        Senior Officer
+                      </SelectItem>
+                      <SelectItem value="deputy-secretary">
+                        Deputy Secretary
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.designation && (
-                    <p className="text-red-500 text-sm mt-1">{errors.designation}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.designation}
+                    </p>
                   )}
                 </div>
               </div>
@@ -512,28 +551,41 @@ export default function EmployeeEntry() {
                   <Label htmlFor="ministry">
                     Ministry <span className="text-red-500">*</span>
                   </Label>
-                  <Select value={formData.ministry} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, ministry: value }));
-                    if (errors.ministry) {
-                      setErrors(prev => ({ ...prev, ministry: "" }));
-                    }
-                  }}>
-                    <SelectTrigger className={errors.ministry ? "border-red-500" : ""}>
+                  <Select
+                    value={formData.ministry}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, ministry: value }));
+                      if (errors.ministry) {
+                        setErrors((prev) => ({ ...prev, ministry: "" }));
+                      }
+                    }}
+                  >
+                    <SelectTrigger
+                      className={errors.ministry ? "border-red-500" : ""}
+                    >
                       <SelectValue placeholder="Select ministry" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="finance">Ministry of Finance</SelectItem>
-                      <SelectItem value="education">Ministry of Education</SelectItem>
+                      <SelectItem value="finance">
+                        Ministry of Finance
+                      </SelectItem>
+                      <SelectItem value="education">
+                        Ministry of Education
+                      </SelectItem>
                       <SelectItem value="health">Ministry of Health</SelectItem>
                       <SelectItem value="ict">Ministry of ICT</SelectItem>
                     </SelectContent>
                   </Select>
                   {errors.ministry && (
-                    <p className="text-red-500 text-sm mt-1">{errors.ministry}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.ministry}
+                    </p>
                   )}
                 </div>
                 <div>
-                  <Label htmlFor="departmentDivision">Division/Department</Label>
+                  <Label htmlFor="departmentDivision">
+                    Division/Department
+                  </Label>
                   <Input
                     id="departmentDivision"
                     name="departmentDivision"
@@ -577,9 +629,12 @@ export default function EmployeeEntry() {
 
               <div>
                 <Label htmlFor="serviceType">Service Type</Label>
-                <Select value={formData.serviceType} onValueChange={(value) => {
-                  setFormData(prev => ({ ...prev, serviceType: value }));
-                }}>
+                <Select
+                  value={formData.serviceType}
+                  onValueChange={(value) => {
+                    setFormData((prev) => ({ ...prev, serviceType: value }));
+                  }}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select service type" />
                   </SelectTrigger>
@@ -684,7 +739,9 @@ export default function EmployeeEntry() {
                     className={errors.nidNumber ? "border-red-500" : ""}
                   />
                   {errors.nidNumber && (
-                    <p className="text-red-500 text-sm mt-1">{errors.nidNumber}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.nidNumber}
+                    </p>
                   )}
                 </div>
                 <div>
@@ -710,9 +767,12 @@ export default function EmployeeEntry() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <Label htmlFor="trainingType">Training Type</Label>
-                  <Select value={formData.trainingType} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, trainingType: value }));
-                  }}>
+                  <Select
+                    value={formData.trainingType}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, trainingType: value }));
+                    }}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
@@ -762,9 +822,12 @@ export default function EmployeeEntry() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <Label htmlFor="completed">Completed</Label>
-                  <Select value={formData.completed} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, completed: value }));
-                  }}>
+                  <Select
+                    value={formData.completed}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({ ...prev, completed: value }));
+                    }}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select status" />
                     </SelectTrigger>
@@ -776,9 +839,15 @@ export default function EmployeeEntry() {
                 </div>
                 <div>
                   <Label htmlFor="certification">Certification</Label>
-                  <Select value={formData.certification} onValueChange={(value) => {
-                    setFormData(prev => ({ ...prev, certification: value }));
-                  }}>
+                  <Select
+                    value={formData.certification}
+                    onValueChange={(value) => {
+                      setFormData((prev) => ({
+                        ...prev,
+                        certification: value,
+                      }));
+                    }}
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Select option" />
                     </SelectTrigger>
@@ -797,26 +866,27 @@ export default function EmployeeEntry() {
         <div className="flex flex-wrap gap-4 justify-between">
           <div className="flex gap-3">
             {currentSectionIndex > 0 && (
-              <Button
-                variant="outline"
-                onClick={handlePrevious}
-              >
+              <Button variant="outline" onClick={handlePrevious}>
                 ← Previous Section
               </Button>
             )}
           </div>
 
           <div className="flex gap-3">
-            <Button variant="outline">
-              Save as Draft
-            </Button>
+            <Button variant="outline">Save as Draft</Button>
 
             {currentSectionIndex < sections.length - 1 ? (
-              <Button onClick={handleNext} className="bg-primary hover:bg-primary/90">
+              <Button
+                onClick={handleNext}
+                className="bg-primary hover:bg-primary/90"
+              >
                 Next Section →
               </Button>
             ) : (
-              <Button onClick={handleSubmit} className="bg-primary hover:bg-primary/90">
+              <Button
+                onClick={handleSubmit}
+                className="bg-primary hover:bg-primary/90"
+              >
                 <Check size={18} className="mr-2" />
                 Submit Record
               </Button>

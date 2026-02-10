@@ -38,7 +38,13 @@ export default function Dashboard() {
   const { user } = useAuth();
   const [selectedPeriod, setSelectedPeriod] = useState("this-month");
   const userRole = user?.role || "employee";
-  const isAdminRole = ["super_admin", "hr_officer", "training_coordinator", "education_coordinator", "research_coordinator"].includes(userRole);
+  const isAdminRole = [
+    "super_admin",
+    "hr_officer",
+    "training_coordinator",
+    "education_coordinator",
+    "research_coordinator",
+  ].includes(userRole);
   const isEmployee = userRole === "employee";
   const isApprover = userRole.includes("approver");
 
@@ -66,10 +72,26 @@ export default function Dashboard() {
   ];
 
   const recentActivities = [
-    { type: "training", title: "John Doe enrolled in Leadership Skills", time: "2 hours ago" },
-    { type: "approval", title: "Training approval for Amelia Smith", time: "4 hours ago" },
-    { type: "research", title: "New research initiative created", time: "1 day ago" },
-    { type: "employee", title: "5 new employees registered", time: "1 day ago" },
+    {
+      type: "training",
+      title: "John Doe enrolled in Leadership Skills",
+      time: "2 hours ago",
+    },
+    {
+      type: "approval",
+      title: "Training approval for Amelia Smith",
+      time: "4 hours ago",
+    },
+    {
+      type: "research",
+      title: "New research initiative created",
+      time: "1 day ago",
+    },
+    {
+      type: "employee",
+      title: "5 new employees registered",
+      time: "1 day ago",
+    },
   ];
 
   return (
@@ -90,7 +112,10 @@ export default function Dashboard() {
               <Plus size={18} className="mr-2" />
               New Entry
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <Eye size={18} className="mr-2" />
               View Reports
             </Button>
@@ -102,8 +127,12 @@ export default function Dashboard() {
           <Card className="p-6">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Total Employees</p>
-                <h3 className="text-3xl font-bold text-gray-900 mt-2">{isEmployee ? "1" : "2,847"}</h3>
+                <p className="text-gray-600 text-sm font-medium">
+                  Total Employees
+                </p>
+                <h3 className="text-3xl font-bold text-gray-900 mt-2">
+                  {isEmployee ? "1" : "2,847"}
+                </h3>
               </div>
               <div className="p-3 bg-blue-100 rounded-lg">
                 <Users className="text-primary" size={24} />
@@ -118,16 +147,19 @@ export default function Dashboard() {
           <Card className="p-6">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Active Training Programs</p>
-                <h3 className="text-3xl font-bold text-gray-900 mt-2">{isEmployee ? "3" : "24"}</h3>
+                <p className="text-gray-600 text-sm font-medium">
+                  Active Training Programs
+                </p>
+                <h3 className="text-3xl font-bold text-gray-900 mt-2">
+                  {isEmployee ? "3" : "24"}
+                </h3>
               </div>
               <div className="p-3 bg-orange-100 rounded-lg">
                 <BookOpen className="text-secondary" size={24} />
               </div>
             </div>
             <div className="flex items-center text-green-600 text-sm font-medium">
-              <TrendingUp size={16} className="mr-1" />
-              5 new this month
+              <TrendingUp size={16} className="mr-1" />5 new this month
             </div>
           </Card>
 
@@ -137,30 +169,37 @@ export default function Dashboard() {
                 <p className="text-gray-600 text-sm font-medium">
                   {isApprover ? "Pending Approvals" : "Pending Applications"}
                 </p>
-                <h3 className="text-3xl font-bold text-gray-900 mt-2">{isEmployee ? "1" : isApprover ? "12" : "45"}</h3>
+                <h3 className="text-3xl font-bold text-gray-900 mt-2">
+                  {isEmployee ? "1" : isApprover ? "12" : "45"}
+                </h3>
               </div>
               <div className="p-3 bg-red-100 rounded-lg">
                 <AlertCircle className="text-error" size={24} />
               </div>
             </div>
             {isApprover && (
-              <Badge className="bg-red-100 text-red-700 mt-2">Requires action</Badge>
+              <Badge className="bg-red-100 text-red-700 mt-2">
+                Requires action
+              </Badge>
             )}
           </Card>
 
           <Card className="p-6">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Research Projects</p>
-                <h3 className="text-3xl font-bold text-gray-900 mt-2">{isEmployee ? "2" : "18"}</h3>
+                <p className="text-gray-600 text-sm font-medium">
+                  Research Projects
+                </p>
+                <h3 className="text-3xl font-bold text-gray-900 mt-2">
+                  {isEmployee ? "2" : "18"}
+                </h3>
               </div>
               <div className="p-3 bg-green-100 rounded-lg">
                 <Award className="text-green-600" size={24} />
               </div>
             </div>
             <div className="flex items-center text-green-600 text-sm font-medium">
-              <TrendingUp size={16} className="mr-1" />
-              2 ongoing
+              <TrendingUp size={16} className="mr-1" />2 ongoing
             </div>
           </Card>
         </div>
@@ -169,7 +208,9 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Training Hours Chart */}
           <Card className="p-6 lg:col-span-2">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Training Hours Progress</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Training Hours Progress
+            </h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={trainingHours}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -177,7 +218,11 @@ export default function Dashboard() {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="completed" fill="#3b82f6" name="Completed Hours" />
+                <Bar
+                  dataKey="completed"
+                  fill="#3b82f6"
+                  name="Completed Hours"
+                />
                 <Bar dataKey="target" fill="#e5e7eb" name="Target Hours" />
               </BarChart>
             </ResponsiveContainer>
@@ -185,7 +230,9 @@ export default function Dashboard() {
 
           {/* Training Distribution */}
           <Card className="p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Training Distribution</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Training Distribution
+            </h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -206,7 +253,10 @@ export default function Dashboard() {
             </ResponsiveContainer>
             <div className="mt-4 space-y-2">
               {trainingDistribution.map((item) => (
-                <div key={item.name} className="flex items-center justify-between text-sm">
+                <div
+                  key={item.name}
+                  className="flex items-center justify-between text-sm"
+                >
                   <span className="text-gray-600">{item.name}</span>
                   <Badge variant="outline">{item.value}%</Badge>
                 </div>
@@ -219,12 +269,16 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Department Statistics */}
           <Card className="p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Department Training Status</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Department Training Status
+            </h3>
             <div className="space-y-4">
               {departmentStats.map((dept) => (
                 <div key={dept.name}>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-gray-700">{dept.name}</span>
+                    <span className="text-sm font-medium text-gray-700">
+                      {dept.name}
+                    </span>
                     <span className="text-sm text-gray-600">
                       {dept.completed}/{dept.employees}
                     </span>
@@ -240,19 +294,24 @@ export default function Dashboard() {
 
           {/* Recent Activity */}
           <Card className="p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Recent Activity</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              Recent Activity
+            </h3>
             <div className="space-y-4">
               {recentActivities.map((activity, idx) => (
-                <div key={idx} className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-0">
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 pb-4 border-b border-gray-100 last:border-0"
+                >
                   <div
                     className={`p-2 rounded-lg ${
                       activity.type === "training"
                         ? "bg-blue-100"
                         : activity.type === "approval"
-                        ? "bg-orange-100"
-                        : activity.type === "research"
-                        ? "bg-green-100"
-                        : "bg-purple-100"
+                          ? "bg-orange-100"
+                          : activity.type === "research"
+                            ? "bg-green-100"
+                            : "bg-purple-100"
                     }`}
                   >
                     {activity.type === "training" && (
@@ -291,11 +350,26 @@ export default function Dashboard() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { date: "Mar 15", event: "Leadership Skills Training", location: "Room 101" },
-              { date: "Mar 20", event: "Research Proposal Deadline", location: "Online" },
-              { date: "Mar 25", event: "Approval Committee Meeting", location: "Conference Hall" },
+              {
+                date: "Mar 15",
+                event: "Leadership Skills Training",
+                location: "Room 101",
+              },
+              {
+                date: "Mar 20",
+                event: "Research Proposal Deadline",
+                location: "Online",
+              },
+              {
+                date: "Mar 25",
+                event: "Approval Committee Meeting",
+                location: "Conference Hall",
+              },
             ].map((event, idx) => (
-              <div key={idx} className="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors">
+              <div
+                key={idx}
+                className="p-4 border border-gray-200 rounded-lg hover:border-primary transition-colors"
+              >
                 <Badge className="mb-2">{event.date}</Badge>
                 <p className="font-medium text-gray-900">{event.event}</p>
                 <p className="text-sm text-gray-600 mt-1">{event.location}</p>

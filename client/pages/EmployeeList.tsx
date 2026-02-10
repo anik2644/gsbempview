@@ -181,14 +181,19 @@ export default function EmployeeList() {
         matchesTrainingStatus
       );
     });
-  }, [searchTerm, selectedMinistry, selectedDepartment, selectedTrainingStatus]);
+  }, [
+    searchTerm,
+    selectedMinistry,
+    selectedDepartment,
+    selectedTrainingStatus,
+  ]);
 
   // Pagination
   const totalPages = Math.ceil(filteredEmployees.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedEmployees = filteredEmployees.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   const getStatusColor = (status: string) => {
@@ -382,7 +387,10 @@ export default function EmployeeList() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {paginatedEmployees.map((emp) => (
-                  <tr key={emp.id} className="hover:bg-gray-50 transition-colors">
+                  <tr
+                    key={emp.id}
+                    className="hover:bg-gray-50 transition-colors"
+                  >
                     <td className="px-6 py-4 text-sm font-medium text-primary">
                       {emp.employeeId}
                     </td>
