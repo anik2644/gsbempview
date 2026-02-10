@@ -16,7 +16,7 @@ export const Placeholder: React.FC<PlaceholderProps> = ({
   icon,
 }) => {
   return (
-    <MainLayout userRole={userRole}>
+    <MainLayout>
       <div className="p-4 md:p-8">
         <div className="max-w-2xl mx-auto mt-12">
           <Card className="p-12 text-center">
