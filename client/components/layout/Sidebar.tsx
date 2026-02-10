@@ -40,7 +40,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userRole = "employee" }) => {
     { label: "Home", path: "/", icon: <Home size={20} /> },
     { label: "Officer/Employee Entry", path: "/employee-entry", icon: <UserPlus size={20} /> },
     { label: "Officer/Employee List", path: "/employee-list", icon: <Users size={20} /> },
-    { label: "Employee Search", path: "/employee-search", icon: <SearchIcon size={20} /> },
+    { label: "Employee Search", path: "/employee-search", icon: <Search size={20} /> },
   ];
 
   const trainingResearchItems: SidebarItem[] = [
